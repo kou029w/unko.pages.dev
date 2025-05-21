@@ -4,27 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>unko.pages.dev</title>
-    <script>
-      const g = (function* () {
-        const messages = [
-          "( ･∀･)っ-=≡●　　　ヽ(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)っ　-=≡●　　ヽ(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)っ　　-=≡●　ヽ(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)っ　　　-=≡●ヽ(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)ﾉ　　　●≡=-⊂(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)ﾉ　　●≡=-　⊂(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)ﾉ　●≡=-　　⊂(･∀･ )ﾉｳﾝｺｰ",
-          "( ･∀･)ﾉ●≡=-　　　⊂(･∀･ )ﾉｳﾝｺｰ",
-        ];
-        while (true) for (const message of messages) yield message;
-      })();
-      function loop() {
-        const { value } = g.next();
-        document.title = value;
-        document.body.textContent = value;
-        setTimeout(loop, 200);
+    <script type="module">
+      const messages = [
+        "( ･∀･)っ-=≡●　　　ヽ(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)っ　-=≡●　　ヽ(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)っ　　-=≡●　ヽ(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)っ　　　-=≡●ヽ(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)ﾉ　　　●≡=-⊂(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)ﾉ　　●≡=-　⊂(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)ﾉ　●≡=-　　⊂(･∀･ )ﾉｳﾝｺｰ",
+        "( ･∀･)ﾉ●≡=-　　　⊂(･∀･ )ﾉｳﾝｺｰ",
+      ];
+      while (true) {
+        for (const message of messages) {
+          document.title = message;
+          document.body.textContent = message;
+          await new Promise((resolve) => setTimeout(resolve, 200));
+        }
       }
-      window.addEventListener("DOMContentLoaded", loop);
     </script>
   </head>
   <body>
